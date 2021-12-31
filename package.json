@@ -15,6 +15,16 @@
     "express-session": "^1.17.2",
     "hbs": "^4.2.0",
     "multer": "^1.4.4",
+    "node-static": "^0.7.11",
     "pg": "^8.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rezanurridwan/personal-web.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/rezanurridwan/personal-web/issues"
+  },
+  "homepage": "https://github.com/rezanurridwan/personal-web#readme"
 }

@@ -210,6 +210,16 @@ app.get('/edit-personaldata', function(req,res){
         user:req.session.user
     })
 })
+app.post('/edit-personaldata', function(req,res){
+    let data = req.body
+
+
+    console.log(data)
+    res.render('edit-personaldata',{
+        islogin:req.session.islogin,
+        user:req.session.user
+    })
+})
 app.get('/articles', function(req,res){
 
     let query = `SELECT tb_article.id,
@@ -251,7 +261,7 @@ app.post('/articles',upload.single('poster'), function(req,res){
     }
 
    let authorId = req.session.user.id
-   let poster = req.file
+   let poster = req.file.filename
 
    db.connect(function(err, client, done){
     if (err) throw err
@@ -274,16 +284,55 @@ app.get('/add-article', function(req,res){
 app.get('/article-detail/:id',function(req,res){
     let id = req.params.id
 
+    
+    let query = `SELECT tb_article.id,
+    tb_article.title,
+    tb_article.genre,
+    tb_article.description,
+    tb_article.poster,
+    tb_user.name AS author FROM tb_article LEFT JOIN tb_user 
+    ON tb_article.author_id = tb_user.id;`
+
     db.connect(function(err, client, done){
         if (err) throw err
-        
-        client.query(`SELECT * FROM tb_article WHERE id = ${id}`, function(err,result){
+
+        client.query( query, function(err,result){
             done()
-            let resulted=result.rows[0]
-            
-            res.render('article-detail', {islogin:islogin, id:id, article:resulted})
+            let resulted=result.rows
+            resulted = resulted.map(function(article){
+                return {
+                    ...article,
+                    // postAt: getTime(new Date()),
+                    // post: getDistanceTime(new Date()),
+                    islogin:req.session.islogin,
+                    poster:'/uploads/' + article.poster
+                }
+            })
+            console.log(resulted)
+            res.render('article-detail', {
+                id:id,
+                islogin:req.session.islogin,
+                data:resulted,
+                user:req.session.user
+            })
         })
     })
+
+    // db.connect(function(err, client, done){
+    //     if (err) throw err
+        
+    //     client.query(`SELECT * FROM tb_article WHERE id = ${id}`, function(err,result){
+    //         done()
+    //         let resulted=result.rows[0]
+            
+    //         res.render('article-detail', {
+    //             id:id,
+    //             article:resulted,
+    //             islogin:req.session.islogin,
+    //             user:req.session.user
+    //         })
+    //     })
+    // })
 })
 app.get('/edit-article/:id', function(req,res){
     let id = req.params.id
@@ -301,7 +350,6 @@ app.get('/edit-article/:id', function(req,res){
                   islogin:req.session.islogin,
                   poster:'/uploads/' + results.rows[0].poster
               }
-              console.log(data)
               res.render('edit-article',
               {
                 id:id,
@@ -321,6 +369,7 @@ app.post('/edit-article/:id',upload.single('poster'), function(req,res){
     
     const query = `UPDATE tb_article SET title = "${title}", genre = "${genre}", author = "${author}", description = "${description}", poster = "${image}", WHERE id = ${id}`;
 
+    console.log(query)
     db.connect(function (err, conn) {
         if (err) throw err;
     
@@ -362,3 +411,12 @@ app.get('/form', function(req,res){
 app.listen(5000, function(){
     console.log(`server starting on port${port}` )
 })
+
+var static = require('node-static');
+var file = new static.Server('index.js');
+
+require('http').createServer(function(request, response) {
+  request.addListener('end', function() {
+    file.serve(request, response);
+  }).resume();
+}).listen(process.env.PORT || 5000);

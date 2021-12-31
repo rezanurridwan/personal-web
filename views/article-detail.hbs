@@ -58,21 +58,22 @@
 
       <!-- start form -->
         <!-- Right-side -->
+        {{#each article}}
         <div class="cardname bg-light" >
           <div class="division1">
-            <img src="{/public/img/theraid.jfif}" alt="">
+            <img src="{{this.poster}}" alt="">
             <div class="division2">
-              <h1 class="card-title">{{article.title}}</h1>
-              <h4 class="genre">{{article.genre}}</h4>
-              <h6 class="card-title" style="font-size: smaller;">{{article.postAt}}||{{article.author}}</h6>
+              <h1 class="card-title">{{this.title}}</h1>
+              <h4 class="genre">{{this.genre}}</h4>
+              <h6 class="card-title" style="font-size: smaller;">{{this.postAt}}||{{this.author}}</h6>
                 <div class="card-text">
-                  <p >{{article.description}}</p>
+                  <p >{{this.description}}</p>
                 </div>
             </div>
           </div>
           <button id="back" class="btn btn-primary ml-5" type="submit"><a href="/articles" style="text-decoration: none; color: white;">BACK</a></button>
         </div>
-
+        {{/each}}
       <!-- end form -->
       <!-- start footer -->
       <footer>
