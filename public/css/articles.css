@@ -1,0 +1,78 @@
+.cardname1 {
+    width: 80%;
+    height: 500px;
+    margin-top: 10px;
+    margin-left: 110px;
+    padding: 5px;
+    overflow:auto;
+}
+.cardname {
+    /* border:1px solid rgb(15, 19, 224); */
+    background-color: grey;
+    display: flex;
+    margin-bottom: 10px;
+}
+.division1{
+    /* border: 1px solid rgb(212, 44, 44); */
+    width: fit-content;
+    height: fit-content;
+    margin:10px;
+}
+.division1 img{
+    /* border: 1px solid black; */
+    /* margin: 10px; */
+    border-radius: 5px;
+    width:220px;
+    width:220px;
+}
+.division1 img:hover {
+    transform: scale(1.2);
+}
+.division2{
+    /* border: 1px solid black; */
+    background-color: rgb(230, 227, 227);
+    margin: 10px;
+    width: fit-content;
+    height: 400px;
+    flex:8;
+    padding: 5px;
+    border-radius:5px;
+}
+.card-text {
+    overflow: auto;
+    height: 250px;
+    text-align: justify;
+    font-size: small;
+    margin-top: 20px;
+}
+.button1 {
+    margin-top: 10px;
+    margin-left: 115px;
+}
+.button2 {
+    margin-top: 10px;
+    /* margin-left: 115px; */
+}
+
+.button1 a, .button2 a {
+    color: #ffff;
+    text-decoration: none;
+}
+
+.card-footer{
+    box-shadow: 0 0 2px 1px rgba(128, 128, 128, 0.301);
+    text-align: center;
+}
+.duration {
+    border-radius:5px;
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    height: 20px;
+    width: fit-content;
+    font-size: small;
+    background-color: rgb(230, 227, 227);
+}
+footer {
+    text-align: center;
+}

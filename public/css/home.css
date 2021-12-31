@@ -1,0 +1,147 @@
+ #active {
+     color:orangered;
+}
+/* start main */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.main-container .section {
+    width: 80%;
+    display: flex;
+}
+
+/* start main-left*/
+.main-left {
+    display: flex;
+    width: 35%;
+    flex: 30%;
+    padding:10px;
+    border-radius: 10px 0 0 10px;
+    margin-right: 2px;
+}
+.card1 {
+    height: 600px;
+    padding: 10px;
+    width:100%;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    box-shadow: 0 0 1px 1px  rgba(180, 180, 180, 0.212);
+}
+.card1 img {
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.profile .share a{
+    margin-right: 5px;
+    margin-bottom: 50px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 50%;
+    color:black;
+}
+.profile .share a:hover{
+    background:rgb(238, 177, 63);
+}
+.profile .share{
+    margin:10px 0;
+}
+.profile{
+    flex:1 1 400px;
+    background-color:rgba(238, 227, 227, 0.034);
+    padding:20px 30px;
+    text-align: center;
+    position: sticky;
+    top:20px; left:0;
+    align-self: flex-start;
+}
+.btnhome{
+    padding:7px 10px;
+    border-radius: 5px;
+    color:white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* start main-right */
+.main-right {
+    width: 65%;
+    padding: 10px;
+}
+.right2{
+    padding: 10px;
+    /* background-color:rgba(238, 227, 227, 0.158);
+    border-radius: 0 10px 10px 0; */
+}
+.right2 p {
+    text-align: justify;
+    font-size: medium;
+}
+.right2 h2 {
+    color: cadetblue;
+}
+.services{
+    padding:10px 0;
+}
+.services .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:15px;
+}
+.services .box-container .box{
+    /* flex:1 1 17px; */
+    text-align: center;
+    border-radius: 5px;
+    padding:20px;
+    box-shadow: 0 0 1px 1px  rgba(180, 180, 180, 0.212);
+    background-color:rgba(238, 227, 227, 0.158);
+}
+.services .box-container .box img {
+    height: 50px;
+}
+.services .box-container .box h5 {
+    margin-top: 10px;
+}
+.experience{
+    padding:10px 0;
+}
+.experience .box-container{
+    display: flex;
+}
+.experience .box-container .box{
+    flex:1;
+    font-size: small;
+    padding:20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-shadow: 0 0 1px 1px  rgba(180, 180, 180, 0.212);
+    background-color:rgba(238, 227, 227, 0.158);
+}
+.experience .box-container .box span {
+    color: rgb(35, 180, 185);
+    text-align: justify;
+    font-weight: bolder;
+}
+.experience .box-container .box p {
+    text-align: start;
+    font-size: small;
+}
+.contact{
+    padding:10px 0;
+}
+.contact .box-container{
+    display: flex;
+}
+.contact .box-container .box{
+    flex: 1;
+    padding: 10px;
+}
+footer {
+    text-align: center;
+}
